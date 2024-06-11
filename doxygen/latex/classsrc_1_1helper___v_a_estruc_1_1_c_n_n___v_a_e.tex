@@ -1,0 +1,225 @@
+\doxysection{src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE Class Reference}
+\hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e}{}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e}\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+Inheritance diagram for src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa1c071d7858cbce84b024385f4c6f368}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa70a95fdc451a48b1107c79ad989c196}{channel\+\_\+in}}, \mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a2e504a39b90f70cd480452d6162735dd}{latent\+\_\+dim}}, hidden\+\_\+dims=None)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ae383f8a55ab9ea11ca5e7c465f8519eb}{encode}} (self, x)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a19f0949ab576bbf5fe5857eef7576881}{decode}} (self, z)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a5d376af056d534476136e6a7a7344a77}{rereparameterize}} (self, mu, log\+\_\+var)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac8abb3fffec61a7ad232b61821b4eee8}{forward}} (self, inputs)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a2e504a39b90f70cd480452d6162735dd}{latent\+\_\+dim}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa70a95fdc451a48b1107c79ad989c196}{channel\+\_\+in}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a9165bf15f7ed82d3f9fbbeea545864f5}{encoder}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac7e6357785ddff5a7918c4bb23a56265}{fc\+\_\+mu}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a32e2db6a6c497b87b7474fa4d5876c43}{fc\+\_\+logvar}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a058a1d49e6ced8d2a65ec567c27822f0}{decoder\+\_\+input}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a128b4f88c81444b90279feb8fdff1a80}{decoder}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ab9ed2c725cb432afcd6b8fd67f6c421f}{final\+\_\+layer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Convolutional Variational Autoencoder (CNN-VAE) for encoding input data to a latent space representation
+and decoding it back to the original input space. This class uses convolutional layers for the encoder
+and convolutional transpose layers for the decoder, with dense layers to connect the latent space representation.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00073}{73}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa1c071d7858cbce84b024385f4c6f368}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa1c071d7858cbce84b024385f4c6f368} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{channel\+\_\+in,  }\item[{}]{latent\+\_\+dim,  }\item[{}]{hidden\+\_\+dims = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00080}{80}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a19f0949ab576bbf5fe5857eef7576881}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a19f0949ab576bbf5fe5857eef7576881} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!decode@{decode}}
+\index{decode@{decode}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+decode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{z }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}  Decodes latent space vectors back into reconstructed images.
+Args:
+    z: latent space vector [B*latent_dim]
+Return:
+    x_hat: reconstructed images [B*C*W*L]
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00144}{144}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ae383f8a55ab9ea11ca5e7c465f8519eb}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ae383f8a55ab9ea11ca5e7c465f8519eb} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!encode@{encode}}
+\index{encode@{encode}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+encode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} Encodes input tensor into a latent space representation (mu and log_var).
+Args: 
+    x: input tensor [B*C*W*L] 
+Return:
+    mu: mean of latent space vector [B*latent_dim]
+    log_var: log variance of latent space vector [B*latent_dim]
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00130}{130}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac8abb3fffec61a7ad232b61821b4eee8}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac8abb3fffec61a7ad232b61821b4eee8} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!forward@{forward}}
+\index{forward@{forward}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+forward (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{inputs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}  connection of encoder and decoder inputs x and output x_hat
+Args:
+    inputs: input tensor [B*C*W*L]
+Return:
+    x_hat: reconstructed images [B*C*W*L]
+    mu: mean of latent space vector [B*latent_dim]
+    log_var: log variance of latent space vector [B*latent_dim]
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00176}{176}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a5d376af056d534476136e6a7a7344a77}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a5d376af056d534476136e6a7a7344a77} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!rereparameterize@{rereparameterize}}
+\index{rereparameterize@{rereparameterize}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{rereparameterize()}{rereparameterize()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+rereparameterize (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mu,  }\item[{}]{log\+\_\+var }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reparameterization trick to sample from N(mu, var) from N(0,1),
+for training purpose, add a random noise log_var to the latent space vector,
+for evaluation purpose, only use the mean of latent space vector
+
+Args: 
+    mu: mean of latent space vector [B*latent_dim]
+    log_var: log variance of latent space vector [B*latent_dim]
+Return:
+    a latent space tesnor [B*latent_dim]\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00157}{157}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa70a95fdc451a48b1107c79ad989c196}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_aa70a95fdc451a48b1107c79ad989c196} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!channel\_in@{channel\_in}}
+\index{channel\_in@{channel\_in}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{channel\_in}{channel\_in}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+channel\+\_\+in}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00083}{83}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a128b4f88c81444b90279feb8fdff1a80}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a128b4f88c81444b90279feb8fdff1a80} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!decoder@{decoder}}
+\index{decoder@{decoder}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{decoder}{decoder}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+decoder}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00118}{118}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a058a1d49e6ced8d2a65ec567c27822f0}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a058a1d49e6ced8d2a65ec567c27822f0} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!decoder\_input@{decoder\_input}}
+\index{decoder\_input@{decoder\_input}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{decoder\_input}{decoder\_input}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+decoder\+\_\+input}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00106}{106}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a9165bf15f7ed82d3f9fbbeea545864f5}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a9165bf15f7ed82d3f9fbbeea545864f5} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!encoder@{encoder}}
+\index{encoder@{encoder}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+encoder}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00098}{98}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a32e2db6a6c497b87b7474fa4d5876c43}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a32e2db6a6c497b87b7474fa4d5876c43} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!fc\_logvar@{fc\_logvar}}
+\index{fc\_logvar@{fc\_logvar}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{fc\_logvar}{fc\_logvar}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+fc\+\_\+logvar}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00102}{102}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac7e6357785ddff5a7918c4bb23a56265}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ac7e6357785ddff5a7918c4bb23a56265} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!fc\_mu@{fc\_mu}}
+\index{fc\_mu@{fc\_mu}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{fc\_mu}{fc\_mu}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+fc\+\_\+mu}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00101}{101}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ab9ed2c725cb432afcd6b8fd67f6c421f}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_ab9ed2c725cb432afcd6b8fd67f6c421f} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!final\_layer@{final\_layer}}
+\index{final\_layer@{final\_layer}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{final\_layer}{final\_layer}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+final\+\_\+layer}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00122}{122}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a2e504a39b90f70cd480452d6162735dd}\label{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e_a2e504a39b90f70cd480452d6162735dd} 
+\index{src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}!latent\_dim@{latent\_dim}}
+\index{latent\_dim@{latent\_dim}!src.helper\_VAEstruc.CNN\_VAE@{src.helper\_VAEstruc.CNN\_VAE}}
+\doxysubsubsection{\texorpdfstring{latent\_dim}{latent\_dim}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+CNN\+\_\+\+VAE.\+latent\+\_\+dim}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00082}{82}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Dropbox/\+Dropbox/\+Fraunhofer\+\_\+\+Cluster/code\+\_\+for\+\_\+\+ITWM/\+VAE\+\_\+unit\+\_\+cell\+\_\+data/src/\mbox{\hyperlink{helper___v_a_estruc_8py}{helper\+\_\+\+VAEstruc.\+py}}\end{DoxyCompactItemize}

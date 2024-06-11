@@ -1,0 +1,22 @@
+{
+    "model_params": {
+        "batch_size": 128,
+        "latent_dim": 6,
+        "beta": 10
+    },
+    "train_params":{
+        "learning_rate": 1e-4, 
+        "epochs": 200,
+        "loading_checkpoint": false
+    },
+    "random_seed": {
+        "manual_seed": 40,
+        "cuda_manual_seed": 39
+    },
+    "Path":{
+        "train_data_path": "/s/dep/sms/w/FHG_Programmierbare_Materialien/PlainDutchWeave/chuc_2023_04/JAX_GPU/code/shape_perturbation/seeds_1/data/data_set/rve_lattice_train.npy",
+        "test_data_path": "/s/dep/sms/w/FHG_Programmierbare_Materialien/PlainDutchWeave/chuc_2023_04/JAX_GPU/code/shape_perturbation/seeds_1/data/data_set/rve_lattice_test.npy",
+        "save_path": "./save_model/",
+        "log_path": "./checkpoints/"
+    }
+}

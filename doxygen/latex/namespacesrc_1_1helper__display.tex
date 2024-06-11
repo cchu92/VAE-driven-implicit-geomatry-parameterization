@@ -1,0 +1,90 @@
+\doxysection{src.\+helper\+\_\+display Namespace Reference}
+\hypertarget{namespacesrc_1_1helper__display}{}\label{namespacesrc_1_1helper__display}\index{src.helper\_display@{src.helper\_display}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0}{make\+\_\+bitmap2}} (image)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40}{normalize}} (data)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1helper__display_a179a84ed9a54e561cbdf97c43bb12689}{imshow\+\_\+compare}} (in\+\_\+, out, N, label\+\_\+in=None, label\+\_\+out=None, count=False, save\+\_\+path=None, epoch=None)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1helper__display_ad70bf993f6bd7d61dbc7b615a21b1ad7}{display\+\_\+one\+\_\+row}} (inputs\+\_\+tensor)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacesrc_1_1helper__display_ad70bf993f6bd7d61dbc7b615a21b1ad7}\label{namespacesrc_1_1helper__display_ad70bf993f6bd7d61dbc7b615a21b1ad7} 
+\index{src.helper\_display@{src.helper\_display}!display\_one\_row@{display\_one\_row}}
+\index{display\_one\_row@{display\_one\_row}!src.helper\_display@{src.helper\_display}}
+\doxysubsubsection{\texorpdfstring{display\_one\_row()}{display\_one\_row()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+display.\+display\+\_\+one\+\_\+row (\begin{DoxyParamCaption}\item[{}]{inputs\+\_\+tensor }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Displays a row of images from the provided input tensor.
+
+Args:
+    inputs_tensor (torch.Tensor): The input images as a PyTorch tensor of shape [N, C, H, W].
+
+Returns:
+    None
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper__display_8py_source_l00103}{103}} of file \mbox{\hyperlink{helper__display_8py_source}{helper\+\_\+display.\+py}}.
+
+\Hypertarget{namespacesrc_1_1helper__display_a179a84ed9a54e561cbdf97c43bb12689}\label{namespacesrc_1_1helper__display_a179a84ed9a54e561cbdf97c43bb12689} 
+\index{src.helper\_display@{src.helper\_display}!imshow\_compare@{imshow\_compare}}
+\index{imshow\_compare@{imshow\_compare}!src.helper\_display@{src.helper\_display}}
+\doxysubsubsection{\texorpdfstring{imshow\_compare()}{imshow\_compare()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+display.\+imshow\+\_\+compare (\begin{DoxyParamCaption}\item[{}]{in\+\_\+,  }\item[{}]{out,  }\item[{}]{N,  }\item[{}]{label\+\_\+in = {\ttfamily None},  }\item[{}]{label\+\_\+out = {\ttfamily None},  }\item[{}]{count = {\ttfamily False},  }\item[{}]{save\+\_\+path = {\ttfamily None},  }\item[{}]{epoch = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Displays a comparison between original and reconstructed images side by side.
+
+Args:
+    in_ (torch.Tensor): The input images as a PyTorch tensor of shape [B, C, H, W].
+    out (torch.Tensor): The reconstructed images as a PyTorch tensor of shape [B, C, H, W].
+    N (int): The number of images to display.
+    label_in (str, optional): The label for the input images. Defaults to None.
+    label_out (str, optional): The label for the output images. Defaults to None.
+    count (bool, optional): If True, displays a count on the images. Defaults to False.
+    save_path (str, optional): The path to save the comparison images. Defaults to None.
+    epoch (int, optional): The current epoch, used in naming the saved file. Defaults to None.
+
+Returns:
+    None
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper__display_8py_source_l00034}{34}} of file \mbox{\hyperlink{helper__display_8py_source}{helper\+\_\+display.\+py}}.
+
+\Hypertarget{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0}\label{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0} 
+\index{src.helper\_display@{src.helper\_display}!make\_bitmap2@{make\_bitmap2}}
+\index{make\_bitmap2@{make\_bitmap2}!src.helper\_display@{src.helper\_display}}
+\doxysubsubsection{\texorpdfstring{make\_bitmap2()}{make\_bitmap2()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+display.\+make\+\_\+bitmap2 (\begin{DoxyParamCaption}\item[{}]{image }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Converts digital image data into a bitmap with a specific color map.
+
+Args:
+    image (numpy.ndarray): An image represented as a 3D numpy array of shape (n, n, p), where n is the
+                           dimension of the image, and p is the number of color channels.
+
+Returns:
+    numpy.ndarray: The color-mapped image data as a numpy array.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper__display_8py_source_l00003}{3}} of file \mbox{\hyperlink{helper__display_8py_source}{helper\+\_\+display.\+py}}.
+
+\Hypertarget{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40}\label{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40} 
+\index{src.helper\_display@{src.helper\_display}!normalize@{normalize}}
+\index{normalize@{normalize}!src.helper\_display@{src.helper\_display}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+display.\+normalize (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} data is the W*H*C numpy data
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper__display_8py_source_l00024}{24}} of file \mbox{\hyperlink{helper__display_8py_source}{helper\+\_\+display.\+py}}.
+

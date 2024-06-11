@@ -1,0 +1,120 @@
+\doxysection{helper\+\_\+load\+\_\+data.\+py}
+\hypertarget{helper__load__data_8py_source}{}\label{helper__load__data_8py_source}\index{D:/Dropbox/Dropbox/Fraunhofer\_Cluster/code\_for\_ITWM/VAE\_unit\_cell\_data/src/helper\_load\_data.py@{D:/Dropbox/Dropbox/Fraunhofer\_Cluster/code\_for\_ITWM/VAE\_unit\_cell\_data/src/helper\_load\_data.py}}
+\mbox{\hyperlink{helper__load__data_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00001}\mbox{\hyperlink{namespacesrc_1_1helper__load__data}{00001}}\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00002}00002\ \textcolor{stringliteral}{custom\ organize\ data\ set\ for\ pytorch\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00003}00003\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00004}00004\ \textcolor{keyword}{import}\ torch}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00005}00005\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00006}00006\ \textcolor{keyword}{from}\ torch.utils.data\ \textcolor{keyword}{import}\ Dataset}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00007}00007\ \textcolor{keyword}{from}\ torchvision\ \textcolor{keyword}{import}\ transforms}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00009}\mbox{\hyperlink{namespacesrc_1_1helper__load__data_aace5931cca00e7f8581e914f3050eff0}{00009}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesrc_1_1helper__load__data_aace5931cca00e7f8581e914f3050eff0}{custom\_transform}}(sample):}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00010}00010\ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ define\ the\ transform\ of\ the\ data\ from\ [0,1]\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00013}00013\ \ \ \ \ \textcolor{comment}{\#\ double\ float\ data}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00014}00014\ \ \ \ \ tensor\_sample\ =\ torch.from\_numpy(sample).float()\ \ \textcolor{comment}{\#\ Convert\ numpy\ array\ to\ tensor}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00015}00015\ \ \ \ \ \textcolor{comment}{\#\ tensor\_sample\ =\ torch.from\_numpy(sample).double()\ \ \#\ Convert\ numpy\ array\ to\ tensor}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00017}00017\ \ \ \ \ \textcolor{comment}{\#\ Normalize\ to\ [0,1]\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00018}00018\ \ \ \ \ normalized\_sample\ =\ tensor\_sample.sub\_(0.).mul\_(1.0)\ \ \textcolor{comment}{\#\ In-\/place\ subtraction\ and\ multiplication}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ normalized\_sample}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00023}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{00023}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{custom\_datasets}}(Dataset):}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00024}00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Custom\ dataset\ for\ organizing\ and\ transforming\ datasets\ for\ PyTorch.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00025}00025\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00026}00026\ \textcolor{stringliteral}{\ \ \ \ This\ dataset\ class\ is\ designed\ to\ load\ data\ from\ a\ specified\ file\ path,\ optionally\ apply\ a\ transformation\ to\ the\ data,}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00027}00027\ \textcolor{stringliteral}{\ \ \ \ and\ support\ flattening\ the\ data\ for\ use\ with\ fully\ connected\ neural\ network\ layers.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00028}00028\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ Attributes:}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ data\ (numpy.ndarray):\ The\ dataset\ loaded\ from\ the\ specified\ path,\ limited\ to\ the\ first\ two\ channels.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ channels\ (int):\ The\ number\ of\ channels\ in\ the\ dataset.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ dim\ (int):\ The\ dimension\ of\ the\ images\ (assumed\ square).}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00033}00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ transform\ (callable,\ optional):\ A\ function/transform\ that\ takes\ in\ a\ sample\ and\ returns\ a\ transformed\ version.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ flatten\ (bool):\ Whether\ to\ flatten\ the\ data\ for\ use\ with\ fully\ connected\ layers.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00035}00035\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ data\_path\ (str):\ The\ file\ path\ to\ the\ dataset,\ expected\ to\ be\ a\ .npy\ file.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ transform\ (callable,\ optional):\ Optional\ transform\ to\ apply\ to\ each\ sample.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ flatten\ (bool):\ If\ True,\ flattens\ the\ data\ for\ use\ with\ fully\ connected\ layers.\ Default\ is\ False.}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00042}00042\ \ \ \ \ print(f\textcolor{stringliteral}{'\(\backslash\)n\ please\ make\ sure\ dataset\ is\ the\ row\ major\ order....'})}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00043}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_af4581ba36e438b963629a2f4ee0e461c}{00043}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_af4581ba36e438b963629a2f4ee0e461c}{\_\_init\_\_}}(self,\ data\_path,\ transform=None,flatten\ =\ False):}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00045}00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Args:\ loading\ the\ dataset\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00046}00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ data\_path:\ path\ to\ the\ data,\ and\ \ size\ should\ be\ [N*C*W*L]}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N:\ number\ of\ images}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C:\ number\ of\ channels\ (gray\ scale\ =\ 1,\ RGB\ =\ 3)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ W:\ width\ of\ the\ image}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L:\ length\ of\ the\ image}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ transform:\ transform\ the\ data,\ default\ is\ None}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00053}00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ flatten:\ \ flatten\ is\ used\ \ only\ for\ a\ flatten\ NN\ layer,\ default\ is\ False}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00054}00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ data\_path:}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(\textcolor{stringliteral}{"{}Please\ provide\ a\ valid\ data\_path\ to\ your\ dataset."{}})}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00058}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{00058}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{data}}\ =\ np.load(data\_path)[:,:2,:,:]\textcolor{comment}{\#\ only\ first\ two\ channel\ is\ expected}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print('data\ size',self.data.shape)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00060}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_ae70b3979be92b72ca05340f5e2206ffe}{00060}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_ae70b3979be92b72ca05340f5e2206ffe}{channels}}\ =\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{data}}.shape[1]\ \textcolor{comment}{\#number\ of\ channels}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ size\ of\ each\ image,\ square\ image}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00062}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a95e0c57d278adff40848fe27ad151935}{00062}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a95e0c57d278adff40848fe27ad151935}{dim}}\ =\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{data}}.shape[2]\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00063}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a7467eeafcc0ffa232ff20824c8458386}{00063}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a7467eeafcc0ffa232ff20824c8458386}{transform}}\ =\ transform}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00064}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_ae1a109db1ebb9e9dedc9d764a58b60be}{00064}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_ae1a109db1ebb9e9dedc9d764a58b60be}{flatten}}\ =\ flatten}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00065}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_afa6d965cceb41241f602938c490229bf}{00065}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_afa6d965cceb41241f602938c490229bf}{\_\_len\_\_}}(self):}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Args:\ return\ the\ size\ of\ data}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ this\ function\ will\ \ used\ for\ torch.utils.data.DataLoader}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00069}00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ len(self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{data}})}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00071}00071\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00072}\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a0b9b38af1a7db9e9909c40857da4bb66}{00072}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a0b9b38af1a7db9e9909c40857da4bb66}{\_\_getitem\_\_}}(self,\ idx):}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Thix\ function\ will\ \ used\ for\ torch.utils.data.DataLoader}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Args:\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ idx:\ a\ list,\ size\ of\ batch\_size,\ random\ choose\ the\ index\ of\ the\ data}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ note,\ the\ first\ dimension\ is\ the\ channel,\ then\ height*width}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ sample\ =\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a6c5bd630cc3988732e151030a899d61e}{data}}[idx]}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ label\ =\ ...\ \#\ no\ label\ for\ this\ dataset}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a7467eeafcc0ffa232ff20824c8458386}{transform}}:\ \textcolor{comment}{\#\ if\ transform\ is\ not\ None,\ normlize\ the\ data}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ sample\ =\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_a7467eeafcc0ffa232ff20824c8458386}{transform}}(sample)}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets_ae1a109db1ebb9e9dedc9d764a58b60be}{flatten}}:}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ sample\ =\ sample.view(-\/1)\textcolor{comment}{\#\ when\ flatten\ is\ used\ for\ a\ flatten\ NN\ layer}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sample,idx}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00091}00091\ \textcolor{comment}{\#\ \#\ test\ the\ data\ set}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00092}00092\ \textcolor{comment}{\#\ def\ test\_data\_load():}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00093}00093\ \textcolor{comment}{\#\ \ \ \ \ import\ torch\ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00094}00094\ \textcolor{comment}{\#\ \ \ \ \ from\ torchvision\ import\ transforms}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00095}00095\ \textcolor{comment}{\#\ \ \ \ \ from\ torch.utils.data\ import\ DataLoader\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00096}00096\ \textcolor{comment}{\#\ \ \ \ \ from\ helper\_dataset\ import\ custom\_datasets}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00097}00097\ \textcolor{comment}{\#\ \ \ \ \ psedo\_data\ =\ np.random.rand(359,100)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00098}00098\ \textcolor{comment}{\#\ \ \ \ \ \#\ for\ i\ in\ range(359):}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00099}00099\ \textcolor{comment}{\#\ \ \ \ \ \#\ \ \ \ \ psedo\_data[i,:]\ =\ np.repeat(i,100)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00100}00100\ \textcolor{comment}{\#\ \ \ \ \ \#\ np.save('./data/GEOMATRY/psedo\_data.npy',psedo\_data)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00101}00101\ \textcolor{comment}{\#\ \ \ \ \ data\_path\ =\ './data/GEOMATRY/pseudo\_rbg.npy'}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00102}00102\ \textcolor{comment}{\#\ \ \ \ \ data\ =\ np.load(data\_path)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00103}00103\ \textcolor{comment}{\#\ \ \ \ \ print(data.shape)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00104}00104\ \textcolor{comment}{\#\ \ \ \ \ \#\ dataset\ =\ custom\_datasets(data\_path,transform=custom\_transform)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00106}00106\ \textcolor{comment}{\#\ \ \ \ \ \#\ print(dataset[0].shape)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00107}00107\ \textcolor{comment}{\#\ \ \ \ \ \#\ dataset.shape()}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00108}00108\ \textcolor{comment}{\#\ \ \ \ \ return\ data}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00110}00110\ \textcolor{comment}{\#\ dataset\ =\ test\_data\_load()}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00111}00111\ \textcolor{comment}{\#\ \#\ device\ =\ torch.device("{}cuda:0"{}\ if\ torch.cuda.is\_available()\ else\ "{}cpu"{})}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00112}00112\ \textcolor{comment}{\#\ \#\ for\ x\ in\ dataset:}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00113}00113\ \textcolor{comment}{\#\ \#\ \ \ \ \ x\ =\ x.to(device)}}
+\DoxyCodeLine{\Hypertarget{helper__load__data_8py_source_l00114}00114\ \textcolor{comment}{\#\ \ \ \ \ print(x.shape)}}
+
+\end{DoxyCode}

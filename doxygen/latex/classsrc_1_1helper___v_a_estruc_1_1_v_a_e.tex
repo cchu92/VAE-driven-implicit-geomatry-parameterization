@@ -1,0 +1,117 @@
+\doxysection{src.\+helper\+\_\+\+VAEstruc.\+VAE Class Reference}
+\hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e}{}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e}\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+Inheritance diagram for src.\+helper\+\_\+\+VAEstruc.\+VAE\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsrc_1_1helper___v_a_estruc_1_1_v_a_e}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a051fac8e312d522318c5af226919057f}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a42e11545c6658f37eb00aa75373cd0e8}{reparameterise}} (self, mu, logvar)
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_aa23c363a411e001da145ac76e08e8a82}{forward}} (self, x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a8634d75edc49ff200f27c103f68017d7}{encoder}}
+\item 
+\mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a2b3c12f6e6294eec4d25b80004bab49e}{decoder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Variational Autoencoder (VAE) implemented using linear layers.
+It encodes input data to a latent space representation and then decodes it back to the original input space.
+The VAE consists of two main parts: an encoder and a decoder. Use dense layers to connect them.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00008}{8}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a051fac8e312d522318c5af226919057f}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a051fac8e312d522318c5af226919057f} 
+\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+VAE.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00014}{14}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_aa23c363a411e001da145ac76e08e8a82}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_aa23c363a411e001da145ac76e08e8a82} 
+\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}!forward@{forward}}
+\index{forward@{forward}!src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+VAE.\+forward (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Defines the forward pass of the VAE.
+
+Parameters:
+- x: Input tensor.
+
+Returns:
+- Reconstructed input, mean and log variance of the latent space distribution.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00051}{51}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a42e11545c6658f37eb00aa75373cd0e8}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a42e11545c6658f37eb00aa75373cd0e8} 
+\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}!reparameterise@{reparameterise}}
+\index{reparameterise@{reparameterise}!src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+\doxysubsubsection{\texorpdfstring{reparameterise()}{reparameterise()}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+VAE.\+reparameterise (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mu,  }\item[{}]{logvar }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reparameterizes the latent space vector to allow backpropagation through random operations.
+This is done by sampling from the distribution defined by mu and logvar using the reparameterization trick.
+
+Parameters:
+- mu: Mean of the latent space distribution.
+- logvar: Log variance of the latent space distribution.
+
+Returns:
+- A sampled latent vector (z).
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00032}{32}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a2b3c12f6e6294eec4d25b80004bab49e}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a2b3c12f6e6294eec4d25b80004bab49e} 
+\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}!decoder@{decoder}}
+\index{decoder@{decoder}!src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+\doxysubsubsection{\texorpdfstring{decoder}{decoder}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+VAE.\+decoder}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00025}{25}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+\Hypertarget{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a8634d75edc49ff200f27c103f68017d7}\label{classsrc_1_1helper___v_a_estruc_1_1_v_a_e_a8634d75edc49ff200f27c103f68017d7} 
+\index{src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}!encoder@{encoder}}
+\index{encoder@{encoder}!src.helper\_VAEstruc.VAE@{src.helper\_VAEstruc.VAE}}
+\doxysubsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily src.\+helper\+\_\+\+VAEstruc.\+VAE.\+encoder}
+
+
+
+Definition at line \mbox{\hyperlink{helper___v_a_estruc_8py_source_l00019}{19}} of file \mbox{\hyperlink{helper___v_a_estruc_8py_source}{helper\+\_\+\+VAEstruc.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Dropbox/\+Dropbox/\+Fraunhofer\+\_\+\+Cluster/code\+\_\+for\+\_\+\+ITWM/\+VAE\+\_\+unit\+\_\+cell\+\_\+data/src/\mbox{\hyperlink{helper___v_a_estruc_8py}{helper\+\_\+\+VAEstruc.\+py}}\end{DoxyCompactItemize}

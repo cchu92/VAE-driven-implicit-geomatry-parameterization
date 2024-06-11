@@ -1,0 +1,466 @@
+\doxysection{src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU Namespace Reference}
+\hypertarget{namespacesrc_1_1main__train__on___g_p_u}{}\label{namespacesrc_1_1main__train__on___g_p_u}\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a91ab1eb6cb06aa284d77270a186ca4be}{lossfunc}} (\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a9014cac11e46bc9db6620bf052c6ebde}{x}}, \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a7bd93165d36a089da8d629090cf7911c}{x\+\_\+hat}}, \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aa6e2e43f79dcc4eb76d6a350d1142e88}{mu}}, \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aabc2f3334e2ef5fe3aa9e648913f28b1}{logvar}}, \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a90a8e4fd61c3ac76cdd9a9a00094738b}{beta}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}} = json.\+load(f)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a354a48431537b39e317e8ae0ae9b9e73}{batch\+\_\+size}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}batch\+\_\+size\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}{latent\+\_\+dim}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}latent\+\_\+dim\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a90a8e4fd61c3ac76cdd9a9a00094738b}{beta}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}beta\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_adf037c433a0bdd63e906f31482610827}{learning\+\_\+rate}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}learning\+\_\+rate\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ad9001d96d5c173b3e50c53dd26a6e170}{epochs}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}epochs\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a0947c8e7dd9b58d90cd5434c0ab41fc4}{manual\+\_\+seed}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}random\+\_\+seed\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}manual\+\_\+seed\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a02dbb1d94b9e271dc8c11c4ca33cc452}{cuda\+\_\+manual\+\_\+seed}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}random\+\_\+seed\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}cuda\+\_\+manual\+\_\+seed\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a99db3d47f55f93d53c78cce02cced8db}{loading\+\_\+checkpoint}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}loading\+\_\+checkpoint\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_acfdb95196876491013760ee5f8905616}{data\+\_\+path\+\_\+train}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}train\+\_\+data\+\_\+path\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a63cbb72dca11997081742ea48ff05f57}{data\+\_\+path\+\_\+test}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}test\+\_\+data\+\_\+path\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_af4db04655a48ca25c5e7b68e9d6bc99c}{save\+\_\+path}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}save\+\_\+path\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1e885ea79a915616f17a3833be2d77a9}{checkpoint\+\_\+path}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}log\+\_\+path\textquotesingle{}\mbox{]}
+\item 
+dict \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a32df70f877600b1c903126819ac6f99b}{kwargs}} = \{\textquotesingle{}num\+\_\+workers\textquotesingle{}\+: 0, \textquotesingle{}pin\+\_\+memory\textquotesingle{}\+: True\}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_af57fa6c78c132dc5f22676e1d71fc7cd}{train\+\_\+loader}} = \mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{custom\+\_\+datasets}}(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_acfdb95196876491013760ee5f8905616}{data\+\_\+path\+\_\+train}},transform=custom\+\_\+transform,flatten=False)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a0a62f41c07de4ca6a2cc2b6a5ebbb0f4}{test\+\_\+loader}} = \mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{custom\+\_\+datasets}}(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a63cbb72dca11997081742ea48ff05f57}{data\+\_\+path\+\_\+test}},transform=custom\+\_\+transform,flatten=False)
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1d5af19b8854d5f804dbf5cd9da9bd28}{model}} = \mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e}{CNN\+\_\+\+VAE}}(channel\+\_\+in=2,\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}{latent\+\_\+dim}}=\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}{latent\+\_\+dim}})
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1b78ff87e851a661f38724b9e8b6e5bb}{device}} = torch.\+device("{}cuda\+:0"{})
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_acdc89d955ccb8dd61204435f0ac81a0b}{optimizer}}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}{checkpoint}} = torch.\+load(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1e885ea79a915616f17a3833be2d77a9}{checkpoint\+\_\+path}}+\textquotesingle{}checkpoint.\+tar\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a166236e8c4d091ef711a76983488a06c}{current\+\_\+epoch}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}{checkpoint}}\mbox{[}\textquotesingle{}epoch\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aa060ca842aa4cce5dfdac29f062ce84f}{loss}} = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}{checkpoint}}\mbox{[}\textquotesingle{}loss\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a51771d101f4d176d7a348033bbd54e29}{mu\+\_\+list}} = list()
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a9ac14124457a7092b35991d2355a1a1c}{x\+\_\+test\+\_\+list}} = list()
+\item 
+int \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a734d59ec4e1e51e131a14169b2e41e33}{train\+\_\+loss}} = 0
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a9014cac11e46bc9db6620bf052c6ebde}{x}} = x.\+to(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1b78ff87e851a661f38724b9e8b6e5bb}{device}})
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a7bd93165d36a089da8d629090cf7911c}{x\+\_\+hat}}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aa6e2e43f79dcc4eb76d6a350d1142e88}{mu}}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aabc2f3334e2ef5fe3aa9e648913f28b1}{logvar}}
+\item 
+str \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a136b311aa27dbb3897334aa94e7f6000}{save\+\_\+model}} = \textquotesingle{}VAEmodel\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1f1cb770b150f194e6148ca5ddb4adbf}{save\+\_\+mu}} = \textquotesingle{}mu\+\_\+list\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_af7a8baae05b09ec2e4a330bd2b7fab29}{mu\+\_\+list\+\_\+test}} = list()
+\item 
+int \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a35f74c3d308453a5c76c0f81b241113a}{test\+\_\+loss}} = 0
+\item 
+str \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a5e2a63451da5891b53d28aac05793822}{save\+\_\+x\+\_\+test}} = \textquotesingle{}x\+\_\+test\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a02c120827aafc0c35cccc79e69d49ef0}{save\+\_\+mu\+\_\+test}} = \textquotesingle{}mu\+\_\+list\+\_\+test\+\_\+\textquotesingle{}+\textquotesingle{}last\textquotesingle{}+ \textquotesingle{}.pt\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a91ab1eb6cb06aa284d77270a186ca4be}\label{namespacesrc_1_1main__train__on___g_p_u_a91ab1eb6cb06aa284d77270a186ca4be} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!lossfunc@{lossfunc}}
+\index{lossfunc@{lossfunc}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{lossfunc()}{lossfunc()}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+lossfunc (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{x\+\_\+hat,  }\item[{}]{mu,  }\item[{}]{logvar,  }\item[{}]{beta }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Computes the Variational Autoencoder (VAE) loss function, combining reconstruction loss and KL divergence.
+
+Args:
+    x (torch.Tensor): Original input images.
+    x_hat (torch.Tensor): Reconstructed images.
+    mu (torch.Tensor): Mean of the latent variables.
+    logvar (torch.Tensor): Log variance of the latent variables.
+    beta (float): Weight for the KL divergence part of the loss.
+
+Returns:
+    torch.Tensor: The computed loss value.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00090}{90}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a354a48431537b39e317e8ae0ae9b9e73}\label{namespacesrc_1_1main__train__on___g_p_u_a354a48431537b39e317e8ae0ae9b9e73} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!batch\_size@{batch\_size}}
+\index{batch\_size@{batch\_size}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{batch\_size}{batch\_size}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+batch\+\_\+size = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}batch\+\_\+size\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00022}{22}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a90a8e4fd61c3ac76cdd9a9a00094738b}\label{namespacesrc_1_1main__train__on___g_p_u_a90a8e4fd61c3ac76cdd9a9a00094738b} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!beta@{beta}}
+\index{beta@{beta}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+beta = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}beta\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00024}{24}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}\label{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!checkpoint@{checkpoint}}
+\index{checkpoint@{checkpoint}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{checkpoint}{checkpoint}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+checkpoint = torch.\+load(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1e885ea79a915616f17a3833be2d77a9}{checkpoint\+\_\+path}}+\textquotesingle{}checkpoint.\+tar\textquotesingle{})}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00079}{79}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a1e885ea79a915616f17a3833be2d77a9}\label{namespacesrc_1_1main__train__on___g_p_u_a1e885ea79a915616f17a3833be2d77a9} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!checkpoint\_path@{checkpoint\_path}}
+\index{checkpoint\_path@{checkpoint\_path}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{checkpoint\_path}{checkpoint\_path}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+checkpoint\+\_\+path = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}log\+\_\+path\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00034}{34}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}\label{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!config@{config}}
+\index{config@{config}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+config = json.\+load(f)}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00019}{19}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a02dbb1d94b9e271dc8c11c4ca33cc452}\label{namespacesrc_1_1main__train__on___g_p_u_a02dbb1d94b9e271dc8c11c4ca33cc452} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!cuda\_manual\_seed@{cuda\_manual\_seed}}
+\index{cuda\_manual\_seed@{cuda\_manual\_seed}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{cuda\_manual\_seed}{cuda\_manual\_seed}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+cuda\+\_\+manual\+\_\+seed = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}random\+\_\+seed\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}cuda\+\_\+manual\+\_\+seed\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00028}{28}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a166236e8c4d091ef711a76983488a06c}\label{namespacesrc_1_1main__train__on___g_p_u_a166236e8c4d091ef711a76983488a06c} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!current\_epoch@{current\_epoch}}
+\index{current\_epoch@{current\_epoch}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{current\_epoch}{current\_epoch}}
+{\footnotesize\ttfamily int src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+current\+\_\+epoch = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}{checkpoint}}\mbox{[}\textquotesingle{}epoch\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00082}{82}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a63cbb72dca11997081742ea48ff05f57}\label{namespacesrc_1_1main__train__on___g_p_u_a63cbb72dca11997081742ea48ff05f57} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!data\_path\_test@{data\_path\_test}}
+\index{data\_path\_test@{data\_path\_test}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{data\_path\_test}{data\_path\_test}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+data\+\_\+path\+\_\+test = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}test\+\_\+data\+\_\+path\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00032}{32}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_acfdb95196876491013760ee5f8905616}\label{namespacesrc_1_1main__train__on___g_p_u_acfdb95196876491013760ee5f8905616} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!data\_path\_train@{data\_path\_train}}
+\index{data\_path\_train@{data\_path\_train}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{data\_path\_train}{data\_path\_train}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+data\+\_\+path\+\_\+train = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}train\+\_\+data\+\_\+path\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00031}{31}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a1b78ff87e851a661f38724b9e8b6e5bb}\label{namespacesrc_1_1main__train__on___g_p_u_a1b78ff87e851a661f38724b9e8b6e5bb} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!device@{device}}
+\index{device@{device}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+device = torch.\+device("{}cuda\+:0"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00065}{65}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_ad9001d96d5c173b3e50c53dd26a6e170}\label{namespacesrc_1_1main__train__on___g_p_u_ad9001d96d5c173b3e50c53dd26a6e170} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!epochs@{epochs}}
+\index{epochs@{epochs}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{epochs}{epochs}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+epochs = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}epochs\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00026}{26}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a32df70f877600b1c903126819ac6f99b}\label{namespacesrc_1_1main__train__on___g_p_u_a32df70f877600b1c903126819ac6f99b} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!kwargs@{kwargs}}
+\index{kwargs@{kwargs}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{kwargs}{kwargs}}
+{\footnotesize\ttfamily dict src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+kwargs = \{\textquotesingle{}num\+\_\+workers\textquotesingle{}\+: 0, \textquotesingle{}pin\+\_\+memory\textquotesingle{}\+: True\}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00047}{47}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}\label{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!latent\_dim@{latent\_dim}}
+\index{latent\_dim@{latent\_dim}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{latent\_dim}{latent\_dim}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+latent\+\_\+dim = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}model\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}latent\+\_\+dim\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00023}{23}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_adf037c433a0bdd63e906f31482610827}\label{namespacesrc_1_1main__train__on___g_p_u_adf037c433a0bdd63e906f31482610827} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!learning\_rate@{learning\_rate}}
+\index{learning\_rate@{learning\_rate}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{learning\_rate}{learning\_rate}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+learning\+\_\+rate = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}learning\+\_\+rate\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00025}{25}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a99db3d47f55f93d53c78cce02cced8db}\label{namespacesrc_1_1main__train__on___g_p_u_a99db3d47f55f93d53c78cce02cced8db} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!loading\_checkpoint@{loading\_checkpoint}}
+\index{loading\_checkpoint@{loading\_checkpoint}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{loading\_checkpoint}{loading\_checkpoint}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+loading\+\_\+checkpoint = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}train\+\_\+params\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}loading\+\_\+checkpoint\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00029}{29}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_aabc2f3334e2ef5fe3aa9e648913f28b1}\label{namespacesrc_1_1main__train__on___g_p_u_aabc2f3334e2ef5fe3aa9e648913f28b1} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!logvar@{logvar}}
+\index{logvar@{logvar}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{logvar}{logvar}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+logvar}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00123}{123}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_aa060ca842aa4cce5dfdac29f062ce84f}\label{namespacesrc_1_1main__train__on___g_p_u_aa060ca842aa4cce5dfdac29f062ce84f} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!loss@{loss}}
+\index{loss@{loss}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{loss}{loss}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+loss = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_ae995ac47ee3df9c868ede605be82317d}{checkpoint}}\mbox{[}\textquotesingle{}loss\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00083}{83}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a0947c8e7dd9b58d90cd5434c0ab41fc4}\label{namespacesrc_1_1main__train__on___g_p_u_a0947c8e7dd9b58d90cd5434c0ab41fc4} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!manual\_seed@{manual\_seed}}
+\index{manual\_seed@{manual\_seed}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{manual\_seed}{manual\_seed}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+manual\+\_\+seed = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}random\+\_\+seed\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}manual\+\_\+seed\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00027}{27}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a1d5af19b8854d5f804dbf5cd9da9bd28}\label{namespacesrc_1_1main__train__on___g_p_u_a1d5af19b8854d5f804dbf5cd9da9bd28} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!model@{model}}
+\index{model@{model}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+model = \mbox{\hyperlink{classsrc_1_1helper___v_a_estruc_1_1_c_n_n___v_a_e}{CNN\+\_\+\+VAE}}(channel\+\_\+in=2,\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}{latent\+\_\+dim}}=\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a58ef59bc7f4c6d91a9883da6146558a2}{latent\+\_\+dim}})}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00059}{59}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_aa6e2e43f79dcc4eb76d6a350d1142e88}\label{namespacesrc_1_1main__train__on___g_p_u_aa6e2e43f79dcc4eb76d6a350d1142e88} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!mu@{mu}}
+\index{mu@{mu}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+mu}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00123}{123}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a51771d101f4d176d7a348033bbd54e29}\label{namespacesrc_1_1main__train__on___g_p_u_a51771d101f4d176d7a348033bbd54e29} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!mu\_list@{mu\_list}}
+\index{mu\_list@{mu\_list}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{mu\_list}{mu\_list}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+mu\+\_\+list = list()}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00117}{117}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_af7a8baae05b09ec2e4a330bd2b7fab29}\label{namespacesrc_1_1main__train__on___g_p_u_af7a8baae05b09ec2e4a330bd2b7fab29} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!mu\_list\_test@{mu\_list\_test}}
+\index{mu\_list\_test@{mu\_list\_test}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{mu\_list\_test}{mu\_list\_test}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+mu\+\_\+list\+\_\+test = list()}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00141}{141}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_acdc89d955ccb8dd61204435f0ac81a0b}\label{namespacesrc_1_1main__train__on___g_p_u_acdc89d955ccb8dd61204435f0ac81a0b} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!optimizer@{optimizer}}
+\index{optimizer@{optimizer}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{optimizer}{optimizer}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+optimizer}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ torch.optim.Adam(}
+\DoxyCodeLine{00002\ \ \ \ \ model.parameters(),}
+\DoxyCodeLine{00003\ \ \ \ \ lr=learning\_rate,}
+\DoxyCodeLine{00004\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00071}{71}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a136b311aa27dbb3897334aa94e7f6000}\label{namespacesrc_1_1main__train__on___g_p_u_a136b311aa27dbb3897334aa94e7f6000} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!save\_model@{save\_model}}
+\index{save\_model@{save\_model}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{save\_model}{save\_model}}
+{\footnotesize\ttfamily str src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+save\+\_\+model = \textquotesingle{}VAEmodel\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00133}{133}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a1f1cb770b150f194e6148ca5ddb4adbf}\label{namespacesrc_1_1main__train__on___g_p_u_a1f1cb770b150f194e6148ca5ddb4adbf} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!save\_mu@{save\_mu}}
+\index{save\_mu@{save\_mu}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{save\_mu}{save\_mu}}
+{\footnotesize\ttfamily str src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+save\+\_\+mu = \textquotesingle{}mu\+\_\+list\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00137}{137}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a02c120827aafc0c35cccc79e69d49ef0}\label{namespacesrc_1_1main__train__on___g_p_u_a02c120827aafc0c35cccc79e69d49ef0} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!save\_mu\_test@{save\_mu\_test}}
+\index{save\_mu\_test@{save\_mu\_test}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{save\_mu\_test}{save\_mu\_test}}
+{\footnotesize\ttfamily str src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+save\+\_\+mu\+\_\+test = \textquotesingle{}mu\+\_\+list\+\_\+test\+\_\+\textquotesingle{}+\textquotesingle{}last\textquotesingle{}+ \textquotesingle{}.pt\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00170}{170}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_af4db04655a48ca25c5e7b68e9d6bc99c}\label{namespacesrc_1_1main__train__on___g_p_u_af4db04655a48ca25c5e7b68e9d6bc99c} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!save\_path@{save\_path}}
+\index{save\_path@{save\_path}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{save\_path}{save\_path}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+save\+\_\+path = \mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_aba16aff84cfca32b04e2443c87155ed3}{config}}\mbox{[}\textquotesingle{}Path\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}save\+\_\+path\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00033}{33}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a5e2a63451da5891b53d28aac05793822}\label{namespacesrc_1_1main__train__on___g_p_u_a5e2a63451da5891b53d28aac05793822} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!save\_x\_test@{save\_x\_test}}
+\index{save\_x\_test@{save\_x\_test}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{save\_x\_test}{save\_x\_test}}
+{\footnotesize\ttfamily str src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+save\+\_\+x\+\_\+test = \textquotesingle{}x\+\_\+test\+\_\+\textquotesingle{}+str(epoch) + \textquotesingle{}.pt\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00157}{157}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a0a62f41c07de4ca6a2cc2b6a5ebbb0f4}\label{namespacesrc_1_1main__train__on___g_p_u_a0a62f41c07de4ca6a2cc2b6a5ebbb0f4} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!test\_loader@{test\_loader}}
+\index{test\_loader@{test\_loader}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{test\_loader}{test\_loader}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+test\+\_\+loader = \mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{custom\+\_\+datasets}}(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a63cbb72dca11997081742ea48ff05f57}{data\+\_\+path\+\_\+test}},transform=custom\+\_\+transform,flatten=False)}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00053}{53}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a35f74c3d308453a5c76c0f81b241113a}\label{namespacesrc_1_1main__train__on___g_p_u_a35f74c3d308453a5c76c0f81b241113a} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!test\_loss@{test\_loss}}
+\index{test\_loss@{test\_loss}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{test\_loss}{test\_loss}}
+{\footnotesize\ttfamily int src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+test\+\_\+loss = 0}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00142}{142}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_af57fa6c78c132dc5f22676e1d71fc7cd}\label{namespacesrc_1_1main__train__on___g_p_u_af57fa6c78c132dc5f22676e1d71fc7cd} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!train\_loader@{train\_loader}}
+\index{train\_loader@{train\_loader}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{train\_loader}{train\_loader}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+train\+\_\+loader = \mbox{\hyperlink{classsrc_1_1helper__load__data_1_1custom__datasets}{custom\+\_\+datasets}}(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_acfdb95196876491013760ee5f8905616}{data\+\_\+path\+\_\+train}},transform=custom\+\_\+transform,flatten=False)}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00049}{49}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a734d59ec4e1e51e131a14169b2e41e33}\label{namespacesrc_1_1main__train__on___g_p_u_a734d59ec4e1e51e131a14169b2e41e33} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!train\_loss@{train\_loss}}
+\index{train\_loss@{train\_loss}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{train\_loss}{train\_loss}}
+{\footnotesize\ttfamily int src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+train\+\_\+loss = 0}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00120}{120}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a9014cac11e46bc9db6620bf052c6ebde}\label{namespacesrc_1_1main__train__on___g_p_u_a9014cac11e46bc9db6620bf052c6ebde} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!x@{x}}
+\index{x@{x}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+x = x.\+to(\mbox{\hyperlink{namespacesrc_1_1main__train__on___g_p_u_a1b78ff87e851a661f38724b9e8b6e5bb}{device}})}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00122}{122}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a7bd93165d36a089da8d629090cf7911c}\label{namespacesrc_1_1main__train__on___g_p_u_a7bd93165d36a089da8d629090cf7911c} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!x\_hat@{x\_hat}}
+\index{x\_hat@{x\_hat}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{x\_hat}{x\_hat}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+x\+\_\+hat}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00123}{123}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+
+\Hypertarget{namespacesrc_1_1main__train__on___g_p_u_a9ac14124457a7092b35991d2355a1a1c}\label{namespacesrc_1_1main__train__on___g_p_u_a9ac14124457a7092b35991d2355a1a1c} 
+\index{src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}!x\_test\_list@{x\_test\_list}}
+\index{x\_test\_list@{x\_test\_list}!src.main\_train\_on\_GPU@{src.main\_train\_on\_GPU}}
+\doxysubsubsection{\texorpdfstring{x\_test\_list}{x\_test\_list}}
+{\footnotesize\ttfamily src.\+main\+\_\+train\+\_\+on\+\_\+\+GPU.\+x\+\_\+test\+\_\+list = list()}
+
+
+
+Definition at line \mbox{\hyperlink{main__train__on___g_p_u_8py_source_l00118}{118}} of file \mbox{\hyperlink{main__train__on___g_p_u_8py_source}{main\+\_\+train\+\_\+on\+\_\+\+GPU.\+py}}.
+

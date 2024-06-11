@@ -1,0 +1,129 @@
+\doxysection{helper\+\_\+display.\+py}
+\hypertarget{helper__display_8py_source}{}\label{helper__display_8py_source}\index{D:/Dropbox/Dropbox/Fraunhofer\_Cluster/code\_for\_ITWM/VAE\_unit\_cell\_data/src/helper\_display.py@{D:/Dropbox/Dropbox/Fraunhofer\_Cluster/code\_for\_ITWM/VAE\_unit\_cell\_data/src/helper\_display.py}}
+\mbox{\hyperlink{helper__display_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00001}\mbox{\hyperlink{namespacesrc}{00001}}\ \textcolor{keyword}{from}\ matplotlib\ \textcolor{keyword}{import}\ pyplot\ \textcolor{keyword}{as}\ plt}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00002}00002\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00003}\mbox{\hyperlink{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0}{00003}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0}{make\_bitmap2}}(image):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00004}00004\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ Converts\ digital\ image\ data\ into\ a\ bitmap\ with\ a\ specific\ color\ map.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00006}00006\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00008}00008\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ image\ (numpy.ndarray):\ An\ image\ represented\ as\ a\ 3D\ numpy\ array\ of\ shape\ (n,\ n,\ p),\ where\ n\ is\ the}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00009}00009\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dimension\ of\ the\ image,\ and\ p\ is\ the\ number\ of\ color\ channels.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00010}00010\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ numpy.ndarray:\ The\ color-\/mapped\ image\ data\ as\ a\ numpy\ array.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00013}00013\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00014}00014\ \ \ \ \ nx\ =\ image.shape[0]}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00015}00015\ \ \ \ \ ny\ =\ nx}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00016}00016\ \ \ \ \ image\ =\ image.reshape(nx\ *\ ny,\ 3)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00017}00017\ \ \ \ \ color\ =\ np.array([[1,\ 0,\ 0],\ [0,\ 0,\ 1],[1,\ 1,\ 1],\ [0,\ 1,\ 0],\ [0,\ 0,\ 0]])}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00018}00018\ \ \ \ \ \textcolor{comment}{\#\ '1,0,0\ red'\ '0,0,1\ blue'\ '1,1,1\ white\ '\ '0,1,0'\ green,'0,0,0'\ black}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00019}00019\ \ \ \ \ I\ =\ np.zeros((nx\ *\ ny,\ 3))}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(3):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ I[:,\ :3]\ +=\ image[:,\ j,\ \textcolor{keywordtype}{None}]\ *\ color[j,\ :3]}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00022}00022\ \ \ \ \ I\ =\ I.reshape(ny,\ nx,\ 3,\ order=\textcolor{stringliteral}{'F'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ I\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00024}\mbox{\hyperlink{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40}{00024}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40}{normalize}}(data):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00025}00025\ \ \ \ \ \textcolor{stringliteral}{'''\ data\ is\ the\ W*H*C\ numpy\ data}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00026}00026\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00027}00027\ \ \ \ \ min\_vals\ =\ np.min(data,\ axis=(0,\ 1),\ keepdims=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00028}00028\ \ \ \ \ max\_vals\ =\ np.max(data,\ axis=(0,\ 1),\ keepdims=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00029}00029\ \ \ \ \ data\_scaled\ =\ (data\ -\/\ min\_vals)\ /\ (max\_vals\ -\/\ min\_vals)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ data\_scaled}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00034}\mbox{\hyperlink{namespacesrc_1_1helper__display_a179a84ed9a54e561cbdf97c43bb12689}{00034}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesrc_1_1helper__display_a179a84ed9a54e561cbdf97c43bb12689}{imshow\_compare}}(in\_,}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out,\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N,\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ label\_in=None,}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ label\_out\ =\ None,\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count=False,}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ save\_path=None,}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ epoch=None):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00042}00042\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ Displays\ a\ comparison\ between\ original\ and\ reconstructed\ images\ side\ by\ side.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00044}00044\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00045}00045\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00046}00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ in\_\ (torch.Tensor):\ The\ input\ images\ as\ a\ PyTorch\ tensor\ of\ shape\ [B,\ C,\ H,\ W].}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ out\ (torch.Tensor):\ The\ reconstructed\ images\ as\ a\ PyTorch\ tensor\ of\ shape\ [B,\ C,\ H,\ W].}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ N\ (int):\ The\ number\ of\ images\ to\ display.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ label\_in\ (str,\ optional):\ The\ label\ for\ the\ input\ images.\ Defaults\ to\ None.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ label\_out\ (str,\ optional):\ The\ label\ for\ the\ output\ images.\ Defaults\ to\ None.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ count\ (bool,\ optional):\ If\ True,\ displays\ a\ count\ on\ the\ images.\ Defaults\ to\ False.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ save\_path\ (str,\ optional):\ The\ path\ to\ save\ the\ comparison\ images.\ Defaults\ to\ None.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00053}00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ epoch\ (int,\ optional):\ The\ current\ epoch,\ used\ in\ naming\ the\ saved\ file.\ Defaults\ to\ None.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00054}00054\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00059}00059\ \ \ \ \ n\ =\ N//4}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ epoch\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ epoch\ =\ 0}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ save\_path\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ create\ a\ folder\ to\ save\ the\ images}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ save\_path\ =\ \textcolor{stringliteral}{'./'}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(n):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ in\_\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Adjust\ for\ the\ number\ of\ channels\ for\ color\ images}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ in\_pic\ =\ in\_.data.cpu().permute(0,\ 2,\ 3,\ 1)\ \ \textcolor{comment}{\#\ Change\ shape\ from\ [B,\ C,\ H,\ W]\ to\ [B,\ H,\ W,\ C]}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ plt.figure(figsize=(18,\ 4))}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ plt.suptitle(label\ +\ '\ –\ real\ test\ data\ /\ reconstructions',\ color='w',\ fontsize=16)}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(4):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.subplot(1,4,i+1,)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Squeeze\ to\ remove\ single-\/dimensional\ entries\ from\ the\ shape\ of\ an\ array.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ image=\ in\_pic[i+4*N].squeeze().numpy()\#\ .squeeze()\ in\ case\ in\_pic\ is\ a\ batch\ with\ B=1,\ to\ numpy\ array}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ image\ =\ normalize(image)}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ plt.imshow(make\_bitmap2(image))\ \ \#\ }}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.imshow(in\_pic[i+4*N].squeeze())\ \ \textcolor{comment}{\#\ }}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.axis(\textcolor{stringliteral}{'off'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ label\_in\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.title(label\_in)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ plt.axis(\textcolor{stringliteral}{'off'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ out\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Similar\ handling\ for\ the\ output\ pictures}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ out\_pic\ =\ out.data.cpu().permute(0,\ 2,\ 3,\ 1)\ \ \textcolor{comment}{\#\ Change\ shape\ from\ [B,\ C,\ H,\ W]\ to\ [B,\ H,\ W,\ C]}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ plt.figure(figsize=(18,\ 6))}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(4):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.subplot(1,4,i+1)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.imshow((out\_pic[i+4*N].squeeze()))\ \ \textcolor{comment}{\#\ .squeeze()\ in\ case\ out\_pic\ is\ a\ batch\ with\ B=1}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plt.axis(\textcolor{stringliteral}{'off'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ count:\ plt.title(str(4\ *\ N\ +\ i),\ color=\textcolor{stringliteral}{'w'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ label\_out\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ plt.title(label\_out)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ plt.show()}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ plt.savefig(save\_path+\textcolor{stringliteral}{'compare\_epoch\_'}+str(epoch)+\textcolor{stringliteral}{'.png'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ plt.close('all')}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00103}\mbox{\hyperlink{namespacesrc_1_1helper__display_ad70bf993f6bd7d61dbc7b615a21b1ad7}{00103}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesrc_1_1helper__display_ad70bf993f6bd7d61dbc7b615a21b1ad7}{display\_one\_row}}(inputs\_tensor):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00104}00104\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ Displays\ a\ row\ of\ images\ from\ the\ provided\ input\ tensor.}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00106}00106\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00108}00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ inputs\_tensor\ (torch.Tensor):\ The\ input\ images\ as\ a\ PyTorch\ tensor\ of\ shape\ [N,\ C,\ H,\ W].}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00109}00109\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00110}00110\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00111}00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00112}00112\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00113}00113\ \ \ \ \ len\ =\ inputs\_tensor.shape[0]}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00114}00114\ \ \ \ \ n\_pic\ =\ inputs\_tensor.data.cpu().permute(0,\ 2,\ 3,\ 1)\ \ \textcolor{comment}{\#\ Change\ shape\ from\ [B,\ C,\ H,\ W]\ to\ [B,\ H,\ W,\ C]}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00115}00115\ \ \ \ \ plt.clf()}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00116}00116\ \ \ \ \ plt.figure(figsize=(4*len,\ 4))}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(len):}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ plt.subplot(1,len,N+1)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ image=\ n\_pic[N].squeeze().numpy()\textcolor{comment}{\#\ .squeeze()\ in\ case\ in\_pic\ is\ a\ batch\ with\ B=1,\ to\ numpy\ array}}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ image\ =\ \mbox{\hyperlink{namespacesrc_1_1helper__display_aa0340537c38e9f12238bd8c78048fc40}{normalize}}(image)}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ plt.imshow(\mbox{\hyperlink{namespacesrc_1_1helper__display_a8f62975799df066429840dff21560fe0}{make\_bitmap2}}(image))}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ plt.axis(\textcolor{stringliteral}{'off'})}
+\DoxyCodeLine{\Hypertarget{helper__display_8py_source_l00123}00123\ \ \ \ \ plt.tight\_layout}
+
+\end{DoxyCode}

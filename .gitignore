@@ -1,0 +1,20 @@
+# .gitignore
+
+# Ignore specific large files
+./data/lattice_beams/rve_opt_all_big_train.npy
+./data/lattice_beams/rve_opt_all_big_test.npy
+./src/save_model/x_test_200.pt
+
+
+./src/save_model/*.pt
+./src/save_model/*.pt
+data/lattice_beams/rve_opt_all_big_train.npy
+data/lattice_beams/rve_opt_all_big_test.npy
+src/save_model/x_test_200.pt
+data/lattice_beams/rve_opt_all_big_train.npy
+data/lattice_beams/rve_opt_all_big_test.npy
+src/save_model/x_test_200.pt
+data/lattice_beams/rve_opt_all_big_train.npy
+data/lattice_beams/rve_opt_all_big_test.npy
+src/save_model/x_test_200.pt
+data/
