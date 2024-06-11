@@ -2,7 +2,7 @@
 ## Graphic abstrict 
 <div align="center">
   <img src="./images/abstract.png" alt="An example image" width="300"/>
-  <p>Figure VAE-driven implicit geomatry parametriclization.</p>
+  <p> VAE-driven implicit geomatry parametriclization.</p>
 </div>
 
 ## Information 
@@ -30,8 +30,10 @@ Data can be dowmload from [Dropbox](https://www.dropbox.com/scl/fo/xqdwyfjq1lhgu
 ### implicite parametrilization 
 
 <div align="center">
-  <img src="https://example.com/image2.jpg" alt="An example image" width="300"/>
-  <p>Figure 1: This is an example caption.</p>
+  <img src="./images/material_repr_1.png" alt="An example image" width="300"/>
+  <img src="./images/AB.png" alt="An example image" width="150"/>
+  <img src="./images/CD.png" alt="An example image" width="150"/>
+  <p>.</p>
 </div>
 
 
