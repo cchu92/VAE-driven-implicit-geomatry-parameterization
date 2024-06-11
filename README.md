@@ -1,7 +1,7 @@
 # VAE manage data
 ## Graphic abstrict 
 <div align="center">
-  <img src="https://example.com/image2.jpg" alt="An example image" width="300"/>
+  <img src="./images/abstract.png" alt="An example image" width="300"/>
   <p>Figure VAE-driven implicit geomatry parametriclization.</p>
 </div>
 
