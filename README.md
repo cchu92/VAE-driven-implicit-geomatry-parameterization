@@ -25,16 +25,6 @@ Normally, we need run model on GPUs but reuse the model on CPU machine, here [ti
 
 Data can be dowmload from [Dropbox](https://www.dropbox.com/scl/fo/xqdwyfjq1lhgu1pv7iqfu/h?rlkey=jlaoermw6k5sj107kzw5bj0fk&dl=0).
 
-## Results 
-
-### implicite parametrilization 
-
-<div align="center">
-  <img src="./images/material_repr_1.png" alt="An example image" width="300"/>
-  <img src="./images/AB.png" alt="An example image" width="150"/>
-  <img src="./images/CD.png" alt="An example image" width="150"/>
-  <p>.</p>
-</div>
 
 
 
