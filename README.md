@@ -1,5 +1,5 @@
 # VAE manage data
-## Graphic abstrict 
+## Graphic abstract 
 <div align="center">
   <img src="./images/abstract.png" alt="An example image" width="300"/>
   <p> VAE-driven implicit geomatry parametriclization.</p>
