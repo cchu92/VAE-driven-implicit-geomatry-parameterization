@@ -25,6 +25,18 @@ Normally, we need run model on GPUs but reuse the model on CPU machine, here [ti
 
 Data can be dowmload from [Dropbox](https://www.dropbox.com/scl/fo/xqdwyfjq1lhgu1pv7iqfu/h?rlkey=jlaoermw6k5sj107kzw5bj0fk&dl=0).
 
+## Cite paper
+
+@article{chu2024exploring,
+  title={Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization},
+  author={Chu, Chenchen and Leichner, Alexander and Wenz, Franziska and Andr{\"a}, Heiko},
+  journal={Materials \& Design},
+  volume={244},
+  pages={113087},
+  year={2024},
+  publisher={Elsevier}
+}
+
 
 
 
